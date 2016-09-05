@@ -49,39 +49,93 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(34);
 	
-	var Card = function Card() {
+	/*var Card = function() {
+	    return (
+	        <div className="cards">
+	        <p>This is a card!</p>
+	        </div>
+	    );
+	};
+	
+	var List = function() {
+	    return (
+	        <div>
+	        <Card />
+	        <Card />
+	        <Card />
+	        </div>
+	    );
+	};*/
+	
+	var Board = function Board(props) {
+	
 	    return React.createElement(
 	        'div',
-	        { className: 'cards' },
+	        null,
 	        React.createElement(
-	            'p',
+	            'h1',
 	            null,
-	            'This is a card!'
+	            props.board_title
+	        ),
+	        React.createElement(
+	            'h2',
+	            null,
+	            props.lists
 	        )
 	    );
 	};
 	
-	var List = function List() {
+	var List = function List(props) {
 	    return React.createElement(
 	        'div',
 	        null,
-	        React.createElement(Card, null),
-	        React.createElement(Card, null),
-	        React.createElement(Card, null)
+	        React.createElement(
+	            'h2',
+	            null,
+	            props.title
+	        )
 	    );
 	};
 	
-	var Board = function Board() {
+	var Card = function Card(props) {
 	    return React.createElement(
 	        'div',
 	        null,
-	        React.createElement(List, null),
-	        React.createElement(List, null),
-	        React.createElement(List, null)
+	        React.createElement(
+	            'p',
+	            null,
+	            props.text
+	        )
 	    );
 	};
+	
+	var Boardz = function Boardz() {
+	    return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(Board, { board_title: 'My Fancy To Do Board',
+	            lists: [React.createElement(
+	                'div',
+	                null,
+	                React.createElement(List, { title: 'My Shopping List' }),
+	                React.createElement(Card, { text: 'Cat food' }),
+	                React.createElement(Card, { text: 'Dog food' }),
+	                React.createElement(Card, { text: 'Human food' })
+	            ), React.createElement(
+	                'div',
+	                null,
+	                React.createElement(List, { title: 'Never Ending Shopping List' }),
+	                React.createElement(Card, { text: 'A Job' }),
+	                React.createElement(Card, { text: 'Kid Food' }),
+	                React.createElement(Card, { text: 'Adult Food' }),
+	                React.createElement(Card, { text: 'New Bed' })
+	            )]
+	        })
+	    );
+	};
+	
 	document.addEventListener('DOMContentLoaded', function () {
-	    ReactDOM.render(React.createElement(Board, null), document.getElementById('my_board'));
+	    ReactDOM.render(React.createElement(Boardz, null), document.getElementById('my_board'));
 	});
 
 /***/ },
