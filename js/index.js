@@ -33,7 +33,11 @@ var Board = function(props) {
 var List = function (props) {
     return (
         <div>
-        <h2>{props.title}</h2>
+            <h2>{props.title}</h2>
+            <form>
+                <input onChange={props.onAddInputChanged} type="text"></input>
+                <button type="submit" onClick={event.preventDefault() props.onAddSubmit}>Submit</button>
+            </form>
         </div>
     );
 };
